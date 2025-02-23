@@ -34,6 +34,21 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.google.guava/guava
 	implementation group: 'com.google.guava', name: 'guava', version: '33.4.0-jre'
 	
+	/*예전 버전 compile -> Gradle에서 deprecated
+	<https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt>
+	compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+	*/
+	
+	// JJWT 라이브러리 ('compile' 대신 'implementation')
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+	//JWT 생성, 서명, 검증 등의 실제 구현 기능 제공
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+	//JWT 페이로드->JSON 형식으로 처리하는 기능 제공
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+	
+	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-security:3.4.2'
+		
 }
 
 tasks.named('test') {
